@@ -9,7 +9,6 @@ streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
 streamlit.text('🐔 Hard-Boiled Free-Range Egg')
 streamlit.text('🥑🍞 Avocado Toast')
 
-
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 # Display the table on the page.
@@ -31,11 +30,9 @@ streamlit.write('The user entered ', fruit_choice)
 
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-
-
 # split fruityvice output into header and columns
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # present the json information in a table
 streamlit.dataframe(fruityvice_normalized)
-
+import snowflake.connector
 
